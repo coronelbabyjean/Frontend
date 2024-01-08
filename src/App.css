@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+/* 
+.home, */
+.reports,
+.products,
+.team {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+/* CSS */
+.landing-page {
+  background-image: url("../public/images/image2.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.landing-page img {
+  width: 100vw;
+  height: 100vh;
+}
+
+.landing-page h1 {
+  text-align: center;
+  color: rgb(245, 245, 245);
+  font-size: 100px;
+  opacity: 0; /* Initially set to transparent */
+  animation: fadeIn 1s forwards; /* Apply the animation */
+}
+
+.landing-page-link {
+  text-decoration: none;
+  transition: transform 0.3s ease; /* Transition for smoother animation */
+}
+
+.landing-page-link:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add this to your CSS */
+.login-register-form {
+  opacity: 0; /* Initially set to transparent */
+  animation: fadeIn 1s forwards; /* Apply the animation */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f3f4f6;
+  border: 1px solid #000000; /* Border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+  padding: 20px; /* Padding for better spacing */
+}
+
+.login-register-box {
+  width: 30%;
+}
+
+.specific-dealer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 10px;
+}
+
+.specific-dealer-container h1 {
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+.table-container {
+  width: 94%;
+  margin: 0 auto; /* Center the table */
+  z-index: -1;
+}
+.table-container h2 {
+  margin: 70px 0 20px 0;
+  font-size: 25px;
+}
+
+@media (max-width: 768px) {
+  .login-register-box {
+    width: 70%; /* Adjust width for smaller screens */
+  }
+}
+@media (max-width: 480px) {
+  .login-register-box {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.manufacturer-link {
+  text-decoration: none;
+}
+.manufacturer-span {
+  margin: 0;
+  text-decoration: none;
+}
+
+.manufacturer-click-for-more-info {
+  margin-top: 90px;
+  margin-left: 40px;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.manufacturer-title h1 {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.table-container h1 {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+/* loader style */
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --color: hsl(0, 0%, 33%);
+  --animation: 2s ease-in-out infinite;
+}
+
+.loader .circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: solid 2px var(--color);
+  border-radius: 50%;
+  margin: 0 10px;
+  background-color: transparent;
+  animation: circle-keys var(--animation);
+}
+
+.loader .circle .dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color);
+  animation: dot-keys var(--animation);
+}
+
+.loader .circle .outline {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: outline-keys var(--animation);
+}
+
+.circle:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.circle:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.circle:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.circle:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+.circle:nth-child(2) .dot {
+  animation-delay: 0.3s;
+}
+
+.circle:nth-child(3) .dot {
+  animation-delay: 0.6s;
+}
+
+.circle:nth-child(4) .dot {
+  animation-delay: 0.9s;
+}
+
+.circle:nth-child(5) .dot {
+  animation-delay: 1.2s;
+}
+
+.circle:nth-child(1) .outline {
+  animation-delay: 0.9s;
+}
+
+.circle:nth-child(2) .outline {
+  animation-delay: 1.2s;
+}
+
+.circle:nth-child(3) .outline {
+  animation-delay: 1.5s;
+}
+
+.circle:nth-child(4) .outline {
+  animation-delay: 1.8s;
+}
+
+.circle:nth-child(5) .outline {
+  animation-delay: 2.1s;
+}
+
+@keyframes circle-keys {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes dot-keys {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes outline-keys {
+  0% {
+    transform: scale(0);
+    outline: solid 20px var(--color);
+    outline-offset: 0;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    outline: solid 0 transparent;
+    outline-offset: 20px;
+    opacity: 0;
+  }
+}
