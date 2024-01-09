@@ -21,7 +21,7 @@
 
 /* CSS */
 .landing-page {
-  background-image: url("../public/images/image2.jpg");
+  background-image: url("../public/images/image12.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -74,10 +74,11 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f3f4f6;
+  background-image: url("../public/images/image6.jpg");
   border: 1px solid #000000; /* Border */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+  box-shadow: 0 4px 8px rgba(240, 237, 237, 0.1); /* Box shadow */
   padding: 20px; /* Padding for better spacing */
+  color: #ffffff; /* Text color (replace with your desired color) */
 }
 
 .login-register-box {
