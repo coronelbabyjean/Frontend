@@ -1,17 +1,21 @@
 /* Vehicle.module.css */
 
+/* Reset styles for all elements */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: serif, "Times New Roman", Times;
 }
+
+/* Styles for the home page heading */
 .home-page h1 {
   text-align: center;
-  color: rgb(102, 98, 98);
+  color: rgb(102, 98, 98); /* Text color */
   margin: 30px 0;
 }
 
+/* Styles for the vehicle grid */
 .vehicle-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(250px, 1fr)); /* Default: 4 columns */
@@ -20,22 +24,24 @@
   margin: 30px 40px;
 }
 
+/* Styles for each card in the grid */
 .card-container {
   background-color: rgb(230, 228, 228);
   border-radius: 10px;
   margin-bottom: 20px;
   transition: transform 0.3s, box-shadow 0.3s; /* Transition properties */
 
-  /* Box shadow */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Initial box shadow */
+  /* Initial box shadow */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Hover effect */
+/* Hover effect for the card */
 .card-container:hover {
-  transform: translateY(-5px); /* Move the card up by 5px */
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Change the box shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Styles for the vehicle image */
 .card-image {
   width: 100%;
   height: 250px;
@@ -43,6 +49,7 @@
   object-fit: cover;
 }
 
+/* Styles for text content inside the card */
 .card-text-content a {
   text-decoration: none;
   color: rgb(102, 98, 98);
@@ -55,6 +62,7 @@
   padding-bottom: 10px;
 }
 
+/* Styles for the brand name */
 .brand-name {
   text-align: center;
 }
@@ -69,11 +77,13 @@
   padding-left: 10px;
 }
 
+/* Styles for the arrow icon */
 .arrow {
   margin-left: 20px;
   font-size: 20px;
 }
 
+/* Styles for the vehicle status and price */
 .vehicle-status-price {
   display: flex;
   flex-direction: column;
@@ -86,7 +96,7 @@
   text-transform: uppercase;
 }
 
-/* dealer info */
+/* Styles for dealer info */
 .dealer-info {
   display: flex;
   flex-direction: row;
@@ -94,51 +104,53 @@
   margin-top: 15px;
 }
 
-/* contact me */
+/* Styles for the contact me button */
 .center-button {
   display: flex;
   justify-content: center;
-  margin: 2px 15px; /* Adjust margin as needed */
+  margin: 2px 15px;
   margin-bottom: 20px;
 }
 
 .center-button .contact-me {
   padding: 5px 40px;
   border-radius: 5px;
-  background-color: rgba(230, 228, 228, 0.7); /* Blend with the card's color */
-  transition: background-color 0.3s, box-shadow 0.3s; /* Transition properties */
+  background-color: rgba(230, 228, 228, 0.7);
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .center-button .contact-me:hover {
-  background-color: rgba(206, 204, 204, 0.7); /* Blend with the card's color */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow on hover */
-  transition-delay: 0.2s; /* Delay before transition starts on hover */
+  background-color: rgba(206, 204, 204, 0.7);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition-delay: 0.2s;
 }
-/* pagination style */
+
+/* Styles for pagination */
 .pagination-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px; /* Adjust margin as needed */
+  margin-top: 20px;
 }
 
 .pagination-buttons {
   display: flex;
-  gap: 10px; /* Adjust the spacing between buttons */
+  gap: 10px;
 }
 
-/* Vehicle.module.css */
-
+/* Styles for the brand list container */
 .brand-list-container {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
+/* Styles for the brand link */
 .brand-link {
   text-decoration: none;
 }
 
+/* Styles for the brand list text */
 .brand-list-text {
   font-size: large;
   margin-left: 40px;
@@ -149,19 +161,15 @@
   color: rgb(44, 37, 37);
 }
 
-.brand-link {
-  text-decoration: none;
-}
-
 .active-brand .brand-list-text {
-  /* Styles for the active link */
-  color: black; /* Change to the desired color for the active link text */
+  color: black;
   border-bottom-style: solid;
   border-color: black;
   padding: 10px;
   border-radius: 3px;
 }
 
+/* Media query for smaller screens */
 @media screen and (max-width: 330px) {
   .brand-list-container {
     flex-direction: column;
@@ -171,7 +179,8 @@
     margin-left: 0;
   }
 }
-/* dealer profile styles */
+
+/* Styles for the dealer profile container */
 .dealer-profile-container {
   height: 30vh;
   width: 70vw;
@@ -188,8 +197,8 @@
 }
 
 .left-side img {
-  width: 100%; /* Full width of the container */
-  height: 100%; /* Full height of the container */
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -204,11 +213,13 @@
   font-size: large;
   margin-left: 10px;
 }
+
 .right-side p {
   color: rgb(121, 121, 121);
   margin-left: 10px;
 }
 
+/* Styles for the view deals link */
 .View-deals {
   text-decoration: none;
   grid-column: span 3;
@@ -220,6 +231,7 @@
   color: rgb(44, 94, 137);
 }
 
+/* Styles for the dealer's vehicle profile */
 .dealers-vehicle-profile {
   display: flex;
   align-items: center;
@@ -234,6 +246,7 @@
   object-fit: cover;
 }
 
+/* Styles for the back link */
 .dealer-deal {
   text-decoration: none;
 }
@@ -251,21 +264,20 @@
   margin-right: 10px;
 }
 
-/* loading styles */
+/* Styles for loading */
 .loading-styles {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px; /* Adjust height as needed */
+  height: 200px;
   font-size: 24px;
   color: #333;
-  /* Add more styling properties as desired */
 }
-/* change this tommorownpm s */
+
+/* Media query for smaller screens */
 @media screen and (max-width: 780px) {
   .dealer-profile-container {
     grid-template-columns: repeat(2, 1fr);
-    /* grid-template-rows: repeat(6, 1fr); */
     width: auto;
     margin-bottom: 100px;
   }
@@ -277,6 +289,7 @@
   }
 }
 
+/* Media query for smaller screens */
 @media screen and (max-width: 385px) {
   .dealer-profile-container {
     margin-bottom: 110px;
@@ -290,23 +303,18 @@
 /* Media query for smaller screens */
 @media screen and (max-width: 1058px) {
   .vehicle-grid {
-    grid-template-columns: repeat(
-      2,
-      minmax(250px, 1fr)
-    ); /* 2 columns on smaller screens */
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
   }
 }
 
 /* Media query for smaller screens */
 @media screen and (max-width: 658px) {
   .vehicle-grid {
-    grid-template-columns: repeat(
-      1,
-      minmax(250px, 1fr)
-    ); /* 2 columns on smaller screens */
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
   }
 }
 
+/* Styles for the search container */
 .search-container {
   padding: 2vh;
   width: 40%;
@@ -317,6 +325,7 @@
   min-width: 200px;
 }
 
+/* Styles for the input container */
 .input-container {
   background-color: white;
   width: 100%;
@@ -328,6 +337,7 @@
   align-items: center;
 }
 
+/* Styles for the input */
 input {
   background-color: transparent;
   border: none;
@@ -340,6 +350,7 @@ input:focus {
   outline: none;
 }
 
+/* Styles for the search icon */
 .search-icon {
   margin-right: 10px;
   color: rgb(121, 133, 161);

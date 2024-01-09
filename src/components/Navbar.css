@@ -1,3 +1,4 @@
+/* Navbar styles */
 .navbar {
   background-color: #343a40;
   height: 80px;
@@ -6,12 +7,14 @@
   align-items: center;
 }
 
+/* Hamburger menu icon */
 .menu-bars {
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
 }
 
+/* Navigation menu container */
 .nav-menu {
   background-color: #343a40;
   width: 250px;
@@ -25,11 +28,13 @@
   z-index: 1000; /* Adjust the z-index to a higher value */
 }
 
+/* Active state for navigation menu */
 .nav-menu.active {
   left: 0;
   transition: 350ms;
 }
 
+/* Navigation items */
 .nav-text {
   display: flex;
   justify-content: flex-start;
@@ -40,6 +45,7 @@
   margin-top: 10px;
 }
 
+/* Navigation item links */
 .nav-text a {
   text-decoration: none;
   color: #f5f5f5;
@@ -52,10 +58,12 @@
   border-radius: 4px;
 }
 
+/* Hover effect on navigation item links */
 .nav-text a:hover {
   background-color: #787878;
 }
 
+/* Container for navigation menu items */
 .nav-menu-items {
   width: 100%;
   display: flex;
@@ -66,6 +74,7 @@
   ); /* Adjust this value based on your Navbar's height */
 }
 
+/* Navbar toggle button */
 .navbar-toggle {
   background-color: #343a40;
   width: 100%;
@@ -75,10 +84,12 @@
   align-items: center;
 }
 
-span {
+/* Styling for the span within the navbar toggle button */
+.navbar-toggle span {
   margin-left: 16px;
 }
 
+/* Logout section styling */
 .logout {
   margin-top: auto;
 }

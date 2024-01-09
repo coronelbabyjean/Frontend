@@ -15,7 +15,7 @@ function ShowAllDealersVehicles() {
   const [dealerInfo, setDealerInfo] = useState({}); // State for dealer information
   const vehiclesPerPage = 8; // Define the number of vehicles per page
   const [isLoading, setIsLoading] = useState(false);
-  const [dealerVehicles, setdealerVehicles] = useState([]);
+  const [dealerVehicles, setDealerVehicles] = useState([]);
 
   const { dealerId } = useParams();
 
@@ -51,7 +51,7 @@ function ShowAllDealersVehicles() {
         `http://localhost:8000/api/salesByDealer/${dealerId}`
       );
       console.log(response.data);
-      setdealerVehicles(response.data); // Assuming setDealerVehicles is a state setter function
+      setDealerVehicles(response.data); // Assuming setDealerVehicles is a state setter function
     } catch (error) {
       console.log(error);
     }
@@ -111,6 +111,7 @@ function ShowAllDealersVehicles() {
       },
     },
   };
+
   return (
     <>
       {isLoading ? (
@@ -126,22 +127,26 @@ function ShowAllDealersVehicles() {
         </div>
       ) : (
         <div className={styles["home-page"]}>
+          {/* Dealer profile and navigation */}
           <div className={styles["dealers-vehicle-profile"]}>
             <img src={dealerInfo.image} alt={vehicles.dealerName} />
           </div>
           <h1>{dealerInfo.dealerName}'s Vehicle</h1>
-
           <Link className={styles["dealer-deal"]} to={"/dealer-profile"}>
             <span>
               <FaChevronLeft className={styles["dealer-deal-arrow"]} />
               back
             </span>
           </Link>
+
+          {/* Displaying vehicles */}
           <div className={styles["vehicle-grid"]}>
             {vehicles.map((vehicle) => (
               <ShowVehicleDeals key={vehicle._id} vehicle={vehicle} />
             ))}
           </div>
+
+          {/* Pagination */}
           <div className={styles["pagination-container"]}>
             <span>Page: {currentPage}</span>
             <div className={styles["pagination-buttons"]}>
@@ -154,6 +159,7 @@ function ShowAllDealersVehicles() {
             </div>
           </div>
 
+          {/* DataTable for displaying dealer's customer deals */}
           <div className="table-container">
             <h2>{dealerInfo.dealerName}'s Customer Deals</h2>
             <DataTable
