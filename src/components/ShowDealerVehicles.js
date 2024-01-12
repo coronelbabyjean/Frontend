@@ -135,7 +135,7 @@ function ShowAllDealersVehicles() {
           <Link className={styles["dealer-deal"]} to={"/dealer-profile"}>
             <span>
               <FaChevronLeft className={styles["dealer-deal-arrow"]} />
-              back
+              Back
             </span>
           </Link>
 

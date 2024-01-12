@@ -5,7 +5,7 @@ import * as FaIcons from "react-icons/fa";
 
 // import * as IoIcons from "react-icons/io";
 
-export const SidebarData = [
+export const NavbarData = [
   {
     title: "Vehicles",
     path: "/vehicle-list",

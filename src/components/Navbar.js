@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Link, useHistory } from "react-router-dom";
-import { SidebarData } from "./SidebarData";
+import { NavbarData } from "./NavbarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 
@@ -25,51 +25,28 @@ function Navbar({ handleLogout }) {
   };
 
   return (
-    <>
-      {/* Provide color context for icons within the Navbar */}
-      <IconContext.Provider value={{ color: "#fff" }}>
-        {/* Main Navbar container */}
-        <div className="navbar">
-          {/* Hamburger menu icon */}
-          <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
-          </Link>
-        </div>
-        
-        {/* Sidebar navigation menu */}
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          {/* List of items in the sidebar */}
-          <ul className="nav-menu-items" onClick={showSidebar}>
-            {/* Close button in the sidebar */}
-            <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
-              </Link>
-            </li>
-            
-            {/* Map through SidebarData to generate sidebar items */}
-            {SidebarData.map((item, index) => (
-              <li key={index} className={item.cName}>
-                <Link to={item.path}>
-                  {/* Icon for each sidebar item */}
-                  {item.icon}
-                  {/* Text label for each sidebar item */}
-                  <span>{item.title}</span>
-                </Link>
-              </li>
-            ))}
-            
-            {/* Logout button in the sidebar */}
-            <li className="nav-text logout">
-              <Link to="#" onClick={handleLogoutClick}>
-                <FaIcons.FaSignOutAlt />
-                <span>Sign Out</span>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </IconContext.Provider>
-    </>
+    <div className="navbar">
+      <div className="nav-items">
+        <Link to="/vehicle-list" className="nav-item">
+          VEHICLES
+        </Link>
+        <Link to="/dealer-profile" className="nav-item">
+          DEALER PROFILE
+        </Link>
+        <Link to="/manufacturer" className="nav-item">
+          MANUFACTURER
+        </Link>
+        <Link to="/sales" className="nav-item">
+          SALES
+        </Link>
+      </div>
+
+      <div className="nav-text logout">
+        <Link to="#" onClick={handleLogoutClick}>
+          SIGN OUT
+        </Link>
+      </div>
+    </div>
   );
 }
 

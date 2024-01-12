@@ -1,95 +1,37 @@
-/* Navbar styles */
+/* Navbar.css */
 .navbar {
-  background-color: #343a40;
-  height: 80px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-/* Hamburger menu icon */
-.menu-bars {
-  margin-left: 2rem;
-  font-size: 2rem;
-  background: none;
-}
-
-/* Navigation menu container */
-.nav-menu {
-  background-color: #343a40;
-  width: 250px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: -100%;
-  transition: 850ms;
-  z-index: 1000; /* Adjust the z-index to a higher value */
-}
-
-/* Active state for navigation menu */
-.nav-menu.active {
-  left: 0;
-  transition: 350ms;
-}
-
-/* Navigation items */
-.nav-text {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 8px 0px 8px 16px;
-  list-style: none;
+  background-color: #333;
   height: 60px;
-  margin-top: 10px;
-}
-
-/* Navigation item links */
-.nav-text a {
-  text-decoration: none;
-  color: #f5f5f5;
-  font-size: 18px;
-  width: 95%;
-  height: 100%;
   display: flex;
-  align-items: center;
-  padding: 0 16px;
-  border-radius: 4px;
-}
-
-/* Hover effect on navigation item links */
-.nav-text a:hover {
-  background-color: #787878;
-}
-
-/* Container for navigation menu items */
-.nav-menu-items {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  height: calc(
-    100% - 60px
-  ); /* Adjust this value based on your Navbar's height */
-}
-
-/* Navbar toggle button */
-.navbar-toggle {
-  background-color: #343a40;
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: flex-start;
   align-items: center;
+  padding: 0 20px;
+  color: #fff;
 }
 
-/* Styling for the span within the navbar toggle button */
-.navbar-toggle span {
-  margin-left: 16px;
+.nav-items {
+  display: flex;
 }
 
+.nav-item {
+  margin-right: 20px;
+  color: #fff;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.nav-item:hover {
+  border-bottom: 2px solid #fff;
+}
+@media screen and (max-width: 768px) {
+  /* Styles for screens with a width of 768 pixels or less */
+}
+.nav-text {
+  cursor: pointer;
+}
 /* Logout section styling */
 .logout {
-  margin-top: auto;
+  margin-right: 30px;
+  
 }
+/* Add other styles based on your design */

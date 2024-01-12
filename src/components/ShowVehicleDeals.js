@@ -30,7 +30,7 @@ function ShowDealerVehicle({ vehicle }) {
           {/* Vehicle status and price */}
           <div className={styles["vehicle-status-price"]}>
             <h4 className={styles["status"]}>{vehicle.vehicleStatus}</h4>
-            <h4> ₱ {vehicle.price}</h4>
+            <h4> $ {vehicle.price}</h4>
           </div>
 
           {/* Dealer information */}
