@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Link, useHistory } from "react-router-dom";
-import { NavbarData } from "./NavbarData";
+import { NavData } from "./NavData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 
