@@ -3,11 +3,19 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import Loader from "../components/loader";
+import styles from "../components/Vehicle.module.css";
+import ShowVehicleDeals from "../components/ShowVehicleDeals";
 
 function SearchResult() {
+  
+
   const { query } = useParams();
   const [searchResult, setSearchResult] = useState([]);
+  const [priceResult, setPriceResult] = useState([]);
   const [getCarAndDealer, setGetCarAndDealer] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const vehiclesPerPage = 8; // Define the number of vehicles per page
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -20,6 +28,7 @@ function SearchResult() {
         }
 
         const url = `http://localhost:8000/api/sales-by-vin?query=${query}`;
+
         const response = await axios.get(url);
         const { data } = response;
 
@@ -35,11 +44,8 @@ function SearchResult() {
         setIsLoading(false);
       }
     };
-
     fetchSearchResults();
-  }, [query]);
 
-  useEffect(() => {
     const fetchCarAndDealerSearchResult = async () => {
       try {
         setIsLoading(true);
@@ -49,6 +55,7 @@ function SearchResult() {
         }
 
         const url = `http://localhost:8000/api/dealerVehicle?query=${query}`;
+
         const response = await axios.get(url);
         const { data } = response;
 
@@ -64,9 +71,49 @@ function SearchResult() {
         setIsLoading(false);
       }
     };
-
     fetchCarAndDealerSearchResult();
+
+   
   }, [query]);
+
+  useEffect(() => {
+    const fetchPriceResult = async () => {
+      try {
+        setIsLoading(true);
+        let url = `http://localhost:8000/api/get-dealer-vehicle-price-search?query=${query}&page=${currentPage}&limit=${vehiclesPerPage}`;
+
+        const response = await axios.get(url);
+        const { data } = response; // Destructure the response
+
+        if (!data.dealerVehicles || data.dealerVehicles.length === 0) {
+          setPriceResult([]);
+          setCurrentPage(1);
+          setTotalPages(0);
+          setIsLoading(false);
+        } else {
+          const { dealerVehicles, currentPage, totalPages } = data; // Destructure from data
+
+          setPriceResult(dealerVehicles);
+          setCurrentPage(currentPage);
+          setTotalPages(totalPages);
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.log(error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchPriceResult();
+  }, [ query, currentPage, vehiclesPerPage]);
+
+  const nextPage = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
 
   const vehicle = [
     {
@@ -155,7 +202,7 @@ function SearchResult() {
   };
 
   return (
-    <div>
+    <>
       {isLoading ? (
         <div
           style={{
@@ -168,83 +215,135 @@ function SearchResult() {
           <Loader />
         </div>
       ) : (
-        <div style={{ paddingBottom: "50px" }}>
-          <h1
-            style={{
-              textAlign: "center",
-              fontWeight: "900",
-              color: " rgb(102, 98, 98)",
-              margin: "50px 0",
-            }}
-          >
-            Search Results For Vin "{query}"
-          </h1>
+        <div>
+          {searchResult.length ||
+          getCarAndDealer.length > priceResult.length ? (
+            <div>
+              {isLoading ? (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100vh",
+                  }}
+                >
+                  <Loader />
+                </div>
+              ) : (
+                <div style={{ paddingBottom: "50px" }}>
+                  <h1
+                    style={{
+                      textAlign: "center",
+                      fontWeight: "900",
+                      color: " rgb(102, 98, 98)",
+                      margin: "50px 0",
+                    }}
+                  >
+                    Search Results for vin "{query}"
+                  </h1>
 
-          {/* vehicle */}
-          <div className="table-container">
-            <h2
-              style={{
-                textTransform: "upperCase",
-                fontWeight: "600",
-              }}
-            >
-              Vehicle
-            </h2>
-            {getCarAndDealer.length > 0 ? (
-              <DataTable
-                columns={vehicle}
-                data={getCarAndDealer}
-                customStyles={customStyles}
-              />
-            ) : (
-              <p>No Results Found</p>
-            )}
-          </div>
+                  {/* vehicle */}
+                  <div className="table-container">
+                    <h2
+                      style={{
+                        textTransform: "upperCase",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Vehicle
+                    </h2>
+                    {getCarAndDealer.length > 0 ? (
+                      <DataTable
+                        columns={vehicle}
+                        data={getCarAndDealer}
+                        customStyles={customStyles}
+                      />
+                    ) : (
+                      <p>No results found</p>
+                    )}
+                  </div>
 
-          {/* dealer */}
-          <div className="table-container">
-            <h2
-              style={{
-                textTransform: "upperCase",
-                fontWeight: "600",
-              }}
-            >
-                Dealer
-            </h2>
-            {getCarAndDealer.length > 0 ? (
-              <DataTable
-                columns={dealer}
-                data={getCarAndDealer}
-                customStyles={customStyles}
-              />
-            ) : (
-              <p>No Results Found</p>
-            )}
-          </div>
+                  {/* dealer */}
+                  <div className="table-container">
+                    <h2
+                      style={{
+                        textTransform: "upperCase",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Dealer
+                    </h2>
+                    {getCarAndDealer.length > 0 ? (
+                      <DataTable
+                        columns={dealer}
+                        data={getCarAndDealer}
+                        customStyles={customStyles}
+                      />
+                    ) : (
+                      <p>No results found</p>
+                    )}
+                  </div>
 
-          {/* Customer */}
-          <div className="table-container">
-            <h2
-              style={{
-                textTransform: "upperCase",
-                fontWeight: "600",
-              }}
-            >
-              Customer
-            </h2>
-            {searchResult.length > 0 ? (
-              <DataTable
-                columns={customer}
-                data={searchResult}
-                customStyles={customStyles}
-              />
-            ) : (
-              <p>No Results Found</p>
-            )}
-          </div>
+                  {/* Customer */}
+                  <div className="table-container">
+                    <h2
+                      style={{
+                        textTransform: "upperCase",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Customer
+                    </h2>
+                    {searchResult.length > 0 ? (
+                      <DataTable
+                        columns={customer}
+                        data={searchResult}
+                        customStyles={customStyles}
+                      />
+                    ) : (
+                      <p>No results found</p>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div>
+              <h1
+                style={{
+                  textAlign: "center",
+                  fontWeight: "900",
+                  color: " rgb(102, 98, 98)",
+                  margin: "50px 0",
+                }}
+              >
+                Vehicle Price Ranging From ${query} and Less
+              </h1>
+              <div className={styles["vehicle-grid"]}>
+                {priceResult.map((priceResult, index) => (
+                  <ShowVehicleDeals key={index} vehicle={priceResult} />
+                ))}
+              </div>
+              <div className={styles["pagination-container"]}>
+                <span>Page: {currentPage}</span>
+                <div className={styles["pagination-buttons"]}>
+                  <button onClick={prevPage} disabled={currentPage === 1}>
+                    Prev Page
+                  </button>
+                  <button
+                    onClick={nextPage}
+                    disabled={currentPage === totalPages}
+                  >
+                    Next Page
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       )}
-    </div>
+    </>
   );
 }
 
