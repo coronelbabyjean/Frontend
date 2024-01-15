@@ -73,7 +73,7 @@ function ShowSpecificVehicleDeals() {
       ) : (
         <div className={styles["home-page"]}>
           <h1 style={{ fontWeight: "900", color: " rgb(102, 98, 98)" }}>
-            {modelInfo.modelName}Dealers{" "}
+            {modelInfo.modelName} Dealers{" "}
           </h1>
           {/* Consider rendering a specific vehicle's image */}
           {/* <img src={vehicles.modelName} alt={vehicles.modelName} /> */}

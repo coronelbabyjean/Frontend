@@ -177,7 +177,7 @@ function SearchResult() {
               margin: "50px 0",
             }}
           >
-            Search Results for vin "{query}"
+            Search Results For Vin "{query}"
           </h1>
 
           {/* vehicle */}
@@ -197,7 +197,7 @@ function SearchResult() {
                 customStyles={customStyles}
               />
             ) : (
-              <p>No results found</p>
+              <p>No Results Found</p>
             )}
           </div>
 
@@ -209,7 +209,7 @@ function SearchResult() {
                 fontWeight: "600",
               }}
             >
-              Dealer
+                Dealer
             </h2>
             {getCarAndDealer.length > 0 ? (
               <DataTable
@@ -218,7 +218,7 @@ function SearchResult() {
                 customStyles={customStyles}
               />
             ) : (
-              <p>No results found</p>
+              <p>No Results Found</p>
             )}
           </div>
 
@@ -239,7 +239,7 @@ function SearchResult() {
                 customStyles={customStyles}
               />
             ) : (
-              <p>No results found</p>
+              <p>No Results Found</p>
             )}
           </div>
         </div>

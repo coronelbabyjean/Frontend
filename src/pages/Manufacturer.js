@@ -118,7 +118,7 @@ const BrandsTable = () => {
             </h1>
           </div>
           <h2 className="manufacturer-click-for-more-info">
-            click image for more information
+            Click Image For More Information
           </h2>
           <div style={flexContainer}>
             {brands.map((brand) => (

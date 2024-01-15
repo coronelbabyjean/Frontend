@@ -91,6 +91,7 @@ function SalesLastThreeYears() {
       name: "Price",
       selector: "dealerVehicleInfo.price", // Replace with your data key
       sortable: true,
+      cell: (row) => `$${row.dealerVehicleInfo.price}`
     },
     {
       name: "Date Created",
@@ -130,6 +131,7 @@ function SalesLastThreeYears() {
       name: "Price",
       selector: "dealerVehicleInfo.price", // Replace with your data key
       sortable: true,
+      cell: (row) => `$${row.dealerVehicleInfo.price}`
     },
     {
       name: "Date Created",
@@ -147,6 +149,7 @@ function SalesLastThreeYears() {
     {
       name: "Total Sale Amount",
       selector: "totalSalesAmount",
+      cell: (row) => `$${row.totalSalesAmount}`
     },
   ];
 

@@ -82,6 +82,7 @@ function ShowAllDealersVehicles() {
       name: "Price",
       selector: "dealerVehicleInfo.price", // Replace with your data key
       sortable: true,
+      cell: (row) => `$${row.dealerVehicleInfo.price}`
     },
     {
       name: "Date",
