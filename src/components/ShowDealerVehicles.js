@@ -38,7 +38,7 @@ function ShowAllDealersVehicles() {
         setDealerInfo(
           dealerVehicles.length > 0 ? dealerVehicles[0].dealerInfo : {}
         ); // Set dealer information
-        setIsLoading(false);
+        setIsLoading(false)
       }
     } catch (error) {
       console.log(error);

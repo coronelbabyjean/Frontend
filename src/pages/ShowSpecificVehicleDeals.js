@@ -104,22 +104,6 @@ function ShowSpecificVehicleDeals() {
               {/* <img src={vehicles.modelName} alt={vehicles.modelName} /> */}
 
               <Brandlist />
-              <div style={{ margin: "10px 40px" }}>
-                <select value={selectedPrice} onChange={handleStyleChange}>
-                  <option value="">All</option>
-                  <option value="1000000">less than 1 Million</option>
-                  <option value="900000">less than 900k</option>
-                  <option value="800000">less than 800k</option>
-                  <option value="700000">less than 700k</option>
-                  <option value="600000">less than 600k</option>
-                  <option value="500000">less than 500k</option>
-                  <option value="400000">less than 400k</option>
-                  <option value="300000">less than 300k</option>
-                  <option value="200000">less than 200k</option>
-                  <option value="100000">less than 100k</option>
-                  {/* Add other style options as needed */}
-                </select>
-              </div>
               <div className={styles["vehicle-grid"]}>
                 {vehicles.map((vehicle) => (
                   <ShowVehicleDeals key={vehicle._id} vehicle={vehicle} />
