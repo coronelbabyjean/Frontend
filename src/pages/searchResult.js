@@ -200,6 +200,8 @@ function SearchResult() {
       },
     },
   };
+  const maxPrice = Math.max(...priceResult.map((vehicle) => vehicle.price));
+  const minPrice = Math.min(...priceResult.map((vehicle) => vehicle.price));
 
   return (
     <>
@@ -318,11 +320,16 @@ function SearchResult() {
                   margin: "50px 0",
                 }}
               >
-                Vehicle Price Ranging From ${query} and Less
+                Vehicle Price Ranging From ${minPrice} To ${maxPrice}
               </h1>
               <div className={styles["vehicle-grid"]}>
                 {priceResult.map((priceResult, index) => (
-                  <ShowVehicleDeals key={index} vehicle={priceResult} />
+                  <ShowVehicleDeals
+                    key={index}
+                    vehicle={priceResult}
+                    isMaxPrice={priceResult.price === maxPrice}
+                    isMinPrice={priceResult.price === minPrice}
+                  />
                 ))}
               </div>
               <div className={styles["pagination-container"]}>
